@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync');
+const prompt = require('prompt-sync')();
 
 const candidats = [
   { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
@@ -58,4 +58,9 @@ function AjouterCandidats(){
         partiPolitique : partiPolitique ,
         prenom : prenom
     }
+
+    candidats.push(nouveauCandidat);
+    console.log("le candidat ajouté avec succes");
 }
+
+AjouterCandidats();
