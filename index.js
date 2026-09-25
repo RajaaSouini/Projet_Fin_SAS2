@@ -49,35 +49,37 @@ let voters = [{firstname : "Rajaa",lastName: "Souini" , cin : "HH129107" ,candid
 
 //step 3
 
-let table = [];
-for(let i = 0 ; i< candidats.length ; i++){
-    let count = 0 ; 
-    for(let j = 0 ; j < voters.length ;j++ ){
-        if(candidats[i].cin === voters[j].candidatsCin ){
-            count += 1 ;
+
+function AfficherCandidatsTrier(candidats){
+    let table = [];
+    for(let i = 0 ; i< candidats.length ; i++){
+        let count = 0 ; 
+        for(let j = 0 ; j < voters.length ;j++ ){
+            if(candidats[i].cin === voters[j].candidatsCin ){
+                count += 1 ;
+            }
+        }
+        table.push({CIN : candidats[i].cin , nom : candidats[i].nom , count : `${count}`});
+        count = 0;
+    }
+
+    for(let i in table){
+        for (let j = 0; j < table.length - 1 - i; j++) {
+        if (table[j].count < table[j + 1].count) {
+        let temp = table[j];
+        table[j] = table[j + 1];
+        table[j + 1] = temp;
         }
     }
-    table.push({CIN : candidats[i].cin , nom : candidats[i].nom , count : `${count}`});
-    count = 0;
-}
-
-for(let i in table){
-    for (let j = 0; j < table.length - 1 - i; j++) {
-    if (table[j].count < table[j + 1].count) {
-      let temp = table[j];
-      table[j] = table[j + 1];
-      table[j + 1] = temp;
     }
-  }
+    //console.log(table);
+
+    for(let i in table){
+        console.log( ` Nom :${table[i].nom } ` );
+        console.log(` CIN : ${table[i].CIN}`);
+        console.log("--------------------");
+    }
 }
-
-//console.log(table);
-
-for(let i in table){
-    console.log( ` Nom :${table[i].nom } ` );
-    console.log(` CIN : ${table[i].CIN}`);
-    console.log("--------------------");
-}
-
+AfficherCandidatsTrier(candidats);
 
 
