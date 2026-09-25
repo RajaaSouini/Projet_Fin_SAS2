@@ -63,4 +63,20 @@ function AjouterCandidats(){
     console.log("le candidat ajouté avec succes");
 }
 
-AjouterCandidats();
+
+//l ajout de pls candidats 
+
+function AjouterPlusieursC(){
+    console.log("Ajoutons plusieurs candidats à la fois");
+
+    let nombreC = parseInt(prompt("entre le nombre de candidats que tu souhaite ajouter"));
+
+    let i = 1 ; 
+    while(i <= nombreC){
+        console.log("entre le candidat " , i);
+        AjouterCandidats();
+        i++ ;
+    }
+}
+
+AjouterPlusieursC();
