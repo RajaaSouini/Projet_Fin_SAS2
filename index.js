@@ -79,4 +79,15 @@ function AjouterPlusieursC(){
     }
 }
 
-AjouterPlusieursC();
+//AjouterPlusieursC();
+
+//l affichage des candidats 
+function AfficherCandidat(candidat){
+    for(let i in candidat){
+        if (i === "voters"){
+            console.log("le nombre de vote est " , candidat[i].length);
+        }
+    }
+}
+
+AfficherCandidat(candidats[1])
