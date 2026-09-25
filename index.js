@@ -23,3 +23,39 @@ const candidats = [
     voters: [] },
 ];
 
+
+//l ajout d'un candidat 
+function AjouterCandidats(){
+    console.log("ajouter un nouveau condidat");
+
+    let cin = prompt("entre le cin candidat");
+
+    let cinExist = false;
+    for(let i = 0 ; i<candidats.length ; i++){
+        if (candidats[i].cin === cin){
+            cinExist = true;
+        }
+    }
+
+    if(cinExist){
+        console.log("le cin existe déjà tu ne peux pas ajouter ce candidat");
+        return;
+    }
+
+    let nom = prompt("entre le nom du candidat");
+    let prenom = prompt("entre le prenom du candidat");
+    let age = Number(prompt("entre l'age du candidat"));
+    let partiPolitique = prompt("entre la parti politique du candidat");
+
+    if(partiPolitique === ""){
+        partiPolitique = "indépendant";
+    }
+
+    let nouveauCandidat = {
+        nom : nom ,
+        cin : cin,
+        age : age ,
+        partiPolitique : partiPolitique ,
+        prenom : prenom
+    }
+}
