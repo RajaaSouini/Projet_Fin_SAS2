@@ -85,9 +85,45 @@ function AjouterPlusieursC(){
 function AfficherCandidat(candidat){
     for(let i in candidat){
         if (i === "voters"){
+            console.log("cin : " ,candidat.cin);
+            console.log("nom :"  , candidat.firstName);
+            console.log("---------------------")
             console.log("le nombre de vote est " , candidat[i].length);
         }
     }
 }
 
-AfficherCandidat(candidats[1])
+AfficherCandidat(candidats[1]);
+
+
+function afficherListe(liste) {
+  if (liste.length === 0) {
+    console.log("aucun candidat à afficher");
+    return;
+  }
+ 
+  for (var i = 0; i < liste.length; i++) {
+    AfficherCandidat(liste[i], i);
+  }
+}
+
+//afficherListe(candidats);
+
+function afficher() {
+
+let candidatsTrier = candidats.slice();
+
+    for (let a = 0; a < candidatsTrier.length - 1; a++) {
+        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
+            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
+                let temp = candidatsTrier[b];
+                candidatsTrier[b] = candidatsTrier[b + 1];
+                candidatsTrier[b + 1] = temp;
+            }
+        }
+    }
+
+    afficherListe(candidatsTrier)
+
+}
+afficher();
