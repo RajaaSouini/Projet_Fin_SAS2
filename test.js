@@ -1,43 +1,37 @@
-//Step 1 
+const prompt = require('prompt-sync')();
 
-const candidats = [{
-    cin: "AB123456",
-	nom: "Boushaba",
-	prenom: "Soufiane",
-	partiPolitique: "Indépendant",
-	age: 40,
-	electeurs: []
-}];
+//Step 1 
+const candidats = [
+  { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
+    voters: [] },
+  { cin: "CD234567", lastName: "El Amrani", firstName: "Fatima Zahra", politicalParty: "PJD", age: 35,
+    voters: ["AB123456", "GH456789", "KL678901"] },
+  { cin: "EF345678", lastName: "Chraibi", firstName: "Younes", politicalParty: "RNI", age: 45,
+    voters: [] },
+  { cin: "GH456789", lastName: "Bennani", firstName: "Salma", politicalParty: "PAM", age: 29,
+    voters: ["IJ567890"] },
+  { cin: "IJ567890", lastName: "Ouahbi", firstName: "Karim", politicalParty: "Istiqlal", age: 52,
+    voters: [] },
+  { cin: "KL678901", lastName: "Ziani", firstName: "Nadia", politicalParty: "Independent", age: 33,
+    voters: [] },
+  { cin: "MN789012", lastName: "Tazi", firstName: "Hamza", politicalParty: "USFP", age: 60,
+    voters: ["QR901234"] },
+  { cin: "OP890123", lastName: "Idrissi", firstName: "Meryem", politicalParty: "PJD", age: 27,
+    voters: [] },
+  { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38,
+    voters: ["CD234567", "EF345678", "MN789012"] },
+  { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31,
+    voters: [] },
+];
+
 //step 2
 
-candidats.push({
-	cin: "HH312673",
-	nom: "Allali",
-	prenom: "Salma",
-	partiPolitique: "PAM",
-	age: 22,
-	electeurs: []
-},
-{
-	cin: "KO786432",
-	nom: "Rhazoui",
-	prenom: "Fahd",
-	partiPolitique: "Indépandant",
-	age: 24,
-	electeurs: []
-},
-{
-	cin: "DH7632",
-	nom: "Alami",
-	prenom: "Hiba",
-	partiPolitique: "PI",
-	age: 20,
-	electeurs: []
-});
+
 
 //console.log(candidats);
 //voters list
 
+/*
 let voters = [{firstname : "Rajaa",lastName: "Souini" , cin : "HH129107" ,candidatsCin: "AB123456" },
     {firstname : "Sara",lastName: "Hajji" , cin : "HA232345" ,candidatsCin: "KO786432" },
     {firstname : "Fahd",lastName: "Raji" , cin : "YO78653" ,candidatsCin: "KO786432" },
@@ -45,7 +39,7 @@ let voters = [{firstname : "Rajaa",lastName: "Souini" , cin : "HH129107" ,candid
     {firstname : "Amina",lastName: "Ouadi" , cin : "HH98765" ,candidatsCin: "DH7632" },
     {firstname : "Rajaa",lastName: "Wadih" , cin : "HH197807" ,candidatsCin: "AB123456" },
     {firstname : "Ayoub",lastName: "Salmi" , cin : "HH167817" ,candidatsCin: "AB123456" }
-];
+]; */
 
 //step 3
 
@@ -78,6 +72,14 @@ function AfficherCandidatsTrier(candidats){
         console.log( ` Nom :${table[i].nom } ` );
         console.log(` CIN : ${table[i].CIN}`);
         console.log("--------------------");
+    }
+}
+
+function test(candidats){
+    let table = [];
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        
     }
 }
 AfficherCandidatsTrier(candidats);
