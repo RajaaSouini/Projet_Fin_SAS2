@@ -149,6 +149,14 @@ function voter(){
     let cinVoter = prompt("entre ta cin");
     let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter");
 
+    f/*
+    or(let i of candidats){
+        if(i.voters.includes(cinVoter)){
+            console.log("Vous avez déjà voté et vous n'avez pas le droit de modifier votre vote ni de voter à nouveau");
+            return;
+        }
+    }
+    */
     for(let i of candidats){
         if(i.cin === cinCandidat){
             i.voters.push(cinVoter);
@@ -156,7 +164,12 @@ function voter(){
     }
 }
 voter();
-//afficher();
+afficher();
+
+
+
+
+
 
 
 
