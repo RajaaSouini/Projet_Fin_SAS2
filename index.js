@@ -161,7 +161,7 @@ function voter(){
         }
     }
 }
-voter();
+//voter();
 //afficher();
 
 function ModifierPartiPolitique(){
@@ -217,19 +217,35 @@ function RechercherCandidat(){
 //RechercherCandidat();
 
 //statistiques de l'élection 
-function StatistiqueElection(){
-    console.log("le nombre total des candidats est :" , candidats.length);
+function AfficherTotalCandidat(){
+    console.log("Le nombre total des candidats est : " , candidats.length);
+}
+function TotalVotesElection(){
     let sum = 0 ;
     for(let i of candidats){
         sum += i.voters.length;
     }
     console.log("le nombre total des votes dans l'élection est : " , sum);
+}
+function topCandidats(){
     let topC = candidatsTrier.slice(0,3);
     console.log("les top 3 dans lélection sont : ");
     for(let i = 0 ; i< topC.length ; i++){
         console.log((i + 1) + " " + topC[i].firstName + " " + topC[i].lastName);
     }
 
+}
+function NombreCparPartiPolitique(){
+    let tableCandidat = [];
+    for(let partiPoli of candidats){
+        
+    }
+}
+
+function StatistiqueElection(){
+    AfficherTotalCandidat();
+    TotalVotesElection();
+    topCandidats();
 }
 //let a = afficher();
 //StatistiqueElection(); 
@@ -275,9 +291,9 @@ function Menu(){
             StatistiqueElection();
             break;
         default :
-            console.log("programme des élections ")
+            Menu();
         
             
     }
 }
-//Menu();
+Menu();
