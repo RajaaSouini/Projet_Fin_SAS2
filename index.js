@@ -149,8 +149,8 @@ function voter(){
     let cinVoter = prompt("entre ta cin");
     let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter");
 
-    f/*
-    or(let i of candidats){
+    /*
+    for(let i of candidats){
         if(i.voters.includes(cinVoter)){
             console.log("Vous avez déjà voté et vous n'avez pas le droit de modifier votre vote ni de voter à nouveau");
             return;
@@ -163,10 +163,25 @@ function voter(){
         }
     }
 }
-voter();
-afficher();
+//voter();
+//afficher();
 
+function ModifierCandidat(){
+    let cinCandidat = prompt("enter le cin du candidat duquel vous souhaiter faire un changement ");
 
+    let newPartiPolitique = prompt("entrer la nouvelle parti politique");
+    let newAge = Number(prompt("entrer l'age du candidat"));
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        if(candidats[i].cin === cinCandidat){
+            candidats[i].age = newAge;
+            candidats[i].politicalParty = newPartiPolitique;
+        }
+        AfficherCandidat(candidats[i]);
+    }
+}
+
+ModifierCandidat();
 
 
 
