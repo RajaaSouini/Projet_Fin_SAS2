@@ -208,6 +208,19 @@ function RechercherCandidat(){
 }
 //RechercherCandidat();
 
+//statistiques de l'élection 
+function StatistiqueElection(){
+    console.log("le nombre total des candidats est :" , candidats.length);
+    let sum = 0 ;
+    for(let i of candidats){
+        sum += i.voters.length;
+    }
+    console.log("le nombre total des votes dans l'élection est : " , sum);
+    
+    console.log("les top 3 dans lélection sont : ")
+}
+StatistiqueElection();
+
 
 
 
