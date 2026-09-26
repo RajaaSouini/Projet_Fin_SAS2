@@ -9,3 +9,5 @@ function estPremier(nombre){
 }
 
 console.log(estPremier(14));
+
+

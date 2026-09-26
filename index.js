@@ -193,8 +193,20 @@ function SupprimerCandidat(){
     }
 }
 
-SupprimerCandidat();
+//SupprimerCandidat();
 //afficher();
+
+//rechercher un candidat
+
+function RechercherCandidat(){
+    let nomC = prompt("entre le nom du candidats");
+    for(let i of candidats){
+        if(i.lastName === nomC){
+            AfficherCandidat(i);
+        }
+    }
+}
+//RechercherCandidat();
 
 
 
