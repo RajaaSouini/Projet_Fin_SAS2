@@ -241,6 +241,7 @@ function topCandidats(){
 //nombre de candidats par parti politique
 
 function NombreCparPartiPolitique(){
+    console.log("Le nombre de candidat par partiPolitique :");
     const nbrCandidatParParti = {};
     for(let i = 0 ; i < candidats.length ; i++){
         let elem = candidats[i].politicalParty;
@@ -249,6 +250,9 @@ function NombreCparPartiPolitique(){
         }else{
             nbrCandidatParParti[elem] += 1 ;
         }
+    }
+    for(let parti in nbrCandidatParParti){
+        console.log(parti , nbrCandidatParParti[parti])
     }
 }
 function StatistiqueElection(){
