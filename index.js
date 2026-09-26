@@ -106,7 +106,7 @@ function afficherListe(liste) {
   }
  
   for (let i = 0; i < liste.length; i++) {
-    AfficherCandidat(liste[i]);//, i
+    AfficherCandidat(liste[i]);
   }
 
 }
@@ -144,24 +144,24 @@ function FiltrerParPartiPolitique(candidats , partiPolitique){
 //voter pour un candidat 
 function voter(){
 
-    let cinVoter = prompt("entre ta cin");
-    let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter");
+    let cinVoter = prompt("entre ta cin ");
+    let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter ");
 
-    /*
+    
     for(let i of candidats){
         if(i.voters.includes(cinVoter)){
             console.log("Vous avez déjà voté et vous n'avez pas le droit de modifier votre vote ni de voter à nouveau");
             return;
         }
     }
-    */
+    
     for(let i of candidats){
         if(i.cin === cinCandidat){
             i.voters.push(cinVoter);
         }
     }
 }
-//voter();
+voter();
 //afficher();
 
 function ModifierPartiPolitique(){
@@ -273,7 +273,11 @@ function Menu(){
             break;
         case 7 :
             StatistiqueElection();
+            break;
+        default :
+            console.log("programme des élections ")
+        
             
     }
 }
-Menu();
+//Menu();
