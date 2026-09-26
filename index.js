@@ -124,10 +124,7 @@ function afficher() {
             }
         }
     }
-
     afficherListe(candidatsTrier);
-    
-
 }
 //afficher();
 
@@ -167,21 +164,31 @@ function voter(){
 //voter();
 //afficher();
 
-function ModifierCandidat(){
+function ModifierPartiPolitique(){
     let cinCandidat = prompt("enter le cin du candidat duquel vous souhaiter faire un changement ");
 
     let newPartiPolitique = prompt("entrer la nouvelle parti politique");
-    let newAge = Number(prompt("entrer l'age du candidat"));
 
     for(let i = 0 ; i< candidats.length ; i++){
         if(candidats[i].cin === cinCandidat){
-            candidats[i].age = newAge;
             candidats[i].politicalParty = newPartiPolitique;
         }
     }
 }
 
-//ModifierCandidat();
+function ModifierAge(){
+     let cinCandidat = prompt("enter le cin du candidat duquel vous souhaiter faire un changement ");
+    let newAge = Number(prompt("entrer l'age du candidat"));
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        if(candidats[i].cin === cinCandidat){
+            candidats[i].age = newAge;
+        }
+    }
+
+}
+//ModifierPartiPolitique();
+//ModifierAge();
 //afficher();
 
 function SupprimerCandidat(){
@@ -224,7 +231,6 @@ function StatistiqueElection(){
     }
 }
 
-afficher();
 StatistiqueElection();
 
 
