@@ -180,8 +180,21 @@ function ModifierCandidat(){
     }
 }
 
-ModifierCandidat();
-afficher();
+//ModifierCandidat();
+//afficher();
+
+function SupprimerCandidat(){
+    let cinC = prompt("entrer le cin du candidat");
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        if (candidats[i].cin == cinC){
+            candidats.splice(i , i);
+        }
+    }
+}
+
+SupprimerCandidat();
+//afficher();
 
 
 
