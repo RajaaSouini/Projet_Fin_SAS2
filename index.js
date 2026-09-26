@@ -217,9 +217,11 @@ function RechercherCandidat(){
 //RechercherCandidat();
 
 //statistiques de l'élection 
+//total candidat
 function AfficherTotalCandidat(){
     console.log("Le nombre total des candidats est : " , candidats.length);
 }
+//totalVotes
 function TotalVotesElection(){
     let sum = 0 ;
     for(let i of candidats){
@@ -227,6 +229,7 @@ function TotalVotesElection(){
     }
     console.log("le nombre total des votes dans l'élection est : " , sum);
 }
+//top 3
 function topCandidats(){
     let topC = candidatsTrier.slice(0,3);
     console.log("les top 3 dans lélection sont : ");
@@ -235,13 +238,14 @@ function topCandidats(){
     }
 
 }
+//nombre de candidats par parti politique
+
 function NombreCparPartiPolitique(){
-    let tableCandidat = [];
-    for(let partiPoli of candidats){
+    let occurence = {};
+    for(let candidat of candidats){
         
     }
 }
-
 function StatistiqueElection(){
     AfficherTotalCandidat();
     TotalVotesElection();
