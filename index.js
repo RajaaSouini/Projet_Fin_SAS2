@@ -229,14 +229,51 @@ function StatistiqueElection(){
     for(let i = 0 ; i< topC.length ; i++){
         console.log((i + 1) + " " + topC[i].firstName + " " + topC[i].lastName);
     }
+
 }
-
-StatistiqueElection();
-
-
+//let a = afficher();
+//StatistiqueElection(); 
 
 
 
+function Menu(){
 
+    console.log(" 1 . Ajouter plusieurs candidats à la fois");
+    console.log(" 2 . Afficher la liste des candidats");
+    console.log(" 3 . Voter pour un candidat");
+    console.log(" 4 . Modifier les informations d'un candidat");
+    console.log(" 5 . Supprimer un candidat");
+    console.log(" 6 . Rechercher des candidats");
+    console.log(" 7 . Statistiques de l'élection");
 
-
+    let nombre = Number(prompt("entre le nombre de l'opération souhaiter :"))
+    switch (nombre){
+        case 1 : 
+            AjouterPlusieursC();
+            break;
+        case 2 :
+            afficher();
+            break;
+        case 3 :
+            voter();
+            break;
+        case 4 :
+            let n = Number(prompt("1 . age / 2 . partiPolitique"));
+            if ( n === 1){
+                ModifierAge();
+            }else if (n === 2){
+                ModifierPartiPolitique();
+            }
+            break;
+        case 5 : 
+            SupprimerCandidat();
+            break;
+        case 6 :
+            RechercherCandidat();
+            break;
+        case 7 :
+            StatistiqueElection();
+            
+    }
+}
+Menu();

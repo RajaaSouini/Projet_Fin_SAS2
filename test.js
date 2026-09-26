@@ -132,7 +132,7 @@ function afficherListe(liste) {
 
 }
 
-//afficherListe(candidats);
+afficherListe(candidatsTrier);
 
 
 function FiltrerParPartiPolitique(candidats , partiPolitique){
