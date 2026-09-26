@@ -1,85 +1,132 @@
-//Step 1 
+const prompt = require('prompt-sync')();
 
-const candidats = [{
-    cin: "AB123456",
-	nom: "Boushaba",
-	prenom: "Soufiane",
-	partiPolitique: "Indépendant",
-	age: 40,
-	electeurs: []
-}];
-//step 2
-
-candidats.push({
-	cin: "HH312673",
-	nom: "Allali",
-	prenom: "Salma",
-	partiPolitique: "PAM",
-	age: 22,
-	electeurs: []
-},
-{
-	cin: "KO786432",
-	nom: "Rhazoui",
-	prenom: "Fahd",
-	partiPolitique: "Indépandant",
-	age: 24,
-	electeurs: []
-},
-{
-	cin: "DH7632",
-	nom: "Alami",
-	prenom: "Hiba",
-	partiPolitique: "PI",
-	age: 20,
-	electeurs: []
-});
-
-//console.log(candidats);
-//voters list
-
-let voters = [{firstname : "Rajaa",lastName: "Souini" , cin : "HH129107" ,candidatsCin: "AB123456" },
-    {firstname : "Sara",lastName: "Hajji" , cin : "HA232345" ,candidatsCin: "KO786432" },
-    {firstname : "Fahd",lastName: "Raji" , cin : "YO78653" ,candidatsCin: "KO786432" },
-    {firstname : "Ahmed",lastName: "Lemdari" , cin : "HA12345" ,candidatsCin: "HH312673" },
-    {firstname : "Amina",lastName: "Ouadi" , cin : "HH98765" ,candidatsCin: "DH7632" },
-    {firstname : "Rajaa",lastName: "Wadih" , cin : "HH197807" ,candidatsCin: "AB123456" },
-    {firstname : "Ayoub",lastName: "Salmi" , cin : "HH167817" ,candidatsCin: "AB123456" }
+const candidats = [
+  { cin: "AB123456", lastName: "Boushaba", firstName: "Soufiane", politicalParty: "Independent", age: 40,
+    voters: [] },
+  { cin: "CD234567", lastName: "El Amrani", firstName: "Fatima Zahra", politicalParty: "PJD", age: 35,
+    voters: ["AB123456", "GH456789", "KL678901"] },
+  { cin: "EF345678", lastName: "Chraibi", firstName: "Younes", politicalParty: "RNI", age: 45,
+    voters: [] },
+  { cin: "GH456789", lastName: "Bennani", firstName: "Salma", politicalParty: "PAM", age: 29,
+    voters: ["IJ567890"] },
+  { cin: "IJ567890", lastName: "Ouahbi", firstName: "Karim", politicalParty: "Istiqlal", age: 52,
+    voters: [] },
+  { cin: "KL678901", lastName: "Ziani", firstName: "Nadia", politicalParty: "Independent", age: 33,
+    voters: [] },
+  { cin: "MN789012", lastName: "Tazi", firstName: "Hamza", politicalParty: "USFP", age: 60,
+    voters: ["QR901234"] },
+  { cin: "OP890123", lastName: "Idrissi", firstName: "Meryem", politicalParty: "PJD", age: 27,
+    voters: [] },
+  { cin: "QR901234", lastName: "Berrada", firstName: "Omar", politicalParty: "RNI", age: 38,
+    voters: ["CD234567", "EF345678", "MN789012"] },
+  { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31,
+    voters: [] },
 ];
 
-//step 3
 
+//l ajout d'un candidat 
+function AjouterCandidats(){
+    console.log("ajouter un nouveau condidat");
 
-function AfficherCandidatsTrier(candidats){
-    let table = [];
-    for(let i = 0 ; i< candidats.length ; i++){
-        let count = 0 ; 
-        for(let j = 0 ; j < voters.length ;j++ ){
-            if(candidats[i].cin === voters[j].candidatsCin ){
-                count += 1 ;
-            }
-        }
-        table.push({CIN : candidats[i].cin , nom : candidats[i].nom , count : `${count}`});
-        count = 0;
-    }
+    let cin = prompt("entre le cin candidat");
 
-    for(let i in table){
-        for (let j = 0; j < table.length - 1 - i; j++) {
-        if (table[j].count < table[j + 1].count) {
-        let temp = table[j];
-        table[j] = table[j + 1];
-        table[j + 1] = temp;
+    let cinExist = false;
+    for(let i = 0 ; i<candidats.length ; i++){
+        if (candidats[i].cin === cin){
+            cinExist = true;
         }
     }
-    }
-    //console.log(table);
 
-    for(let i in table){
-        console.log( ` Nom :${table[i].nom } ` );
-        console.log(` CIN : ${table[i].CIN}`);
-        console.log("--------------------");
+    if(cinExist){
+        console.log("le cin existe déjà tu ne peux pas ajouter ce candidat");
+        return;
+    }
+
+    let nom = prompt("entre le nom du candidat");
+    let prenom = prompt("entre le prenom du candidat");
+    let age = Number(prompt("entre l'age du candidat"));
+    let partiPolitique = prompt("entre la parti politique du candidat");
+
+    if(partiPolitique === ""){
+        partiPolitique = "indépendant";
+    }
+
+    let nouveauCandidat = {
+        nom : nom ,
+        cin : cin,
+        age : age ,
+        partiPolitique : partiPolitique ,
+        prenom : prenom
+    }
+
+    candidats.push(nouveauCandidat);
+    console.log("le candidat ajouté avec succes");
+}
+
+
+//l ajout de pls candidats 
+
+function AjouterPlusieursC(){
+    console.log("Ajoutons plusieurs candidats à la fois");
+
+    let nombreC = parseInt(prompt("entre le nombre de candidats que tu souhaite ajouter"));
+
+    let i = 1 ; 
+    while(i <= nombreC){
+        console.log("entre le candidat " , i);
+        AjouterCandidats();
+        i++ ;
     }
 }
-AfficherCandidatsTrier(candidats);
+
+//AjouterPlusieursC();
+
+//l affichage des candidats 
+function AfficherCandidat(candidat){
+    for(let i in candidat){
+        if (i === "voters"){
+            console.log("cin : " ,candidat.cin);
+            console.log("nom :"  , candidat.firstName);
+            console.log("---------------------")
+            console.log("le nombre de vote est " , candidat[i].length);
+        }
+    }
+}
+
+//AfficherCandidat(candidats[1]);
+
+
+function afficherListe(liste) {
+  if (liste.length === 0) {
+    console.log("aucun candidat à afficher");
+    return;
+  }
+ 
+  for (let i = 0; i < liste.length; i++) {
+    AfficherCandidat(liste[i], i);
+  }
+}
+
+//afficherListe(candidats);
+
+function afficher() {
+
+let candidatsTrier = candidats.slice();
+
+    for (let a = 0; a < candidatsTrier.length - 1; a++) {
+        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
+            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
+                let temp = candidatsTrier[b];
+                candidatsTrier[b] = candidatsTrier[b + 1];
+                candidatsTrier[b + 1] = temp;
+            }
+        }
+    }
+
+    afficherListe(candidatsTrier)
+
+}
+afficher();
+
 
 

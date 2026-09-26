@@ -93,7 +93,7 @@ function AfficherCandidat(candidat){
     }
 }
 
-AfficherCandidat(candidats[1]);
+//AfficherCandidat(candidats[1]);
 
 
 function afficherListe(liste) {
@@ -102,7 +102,7 @@ function afficherListe(liste) {
     return;
   }
  
-  for (var i = 0; i < liste.length; i++) {
+  for (let i = 0; i < liste.length; i++) {
     AfficherCandidat(liste[i], i);
   }
 }
@@ -111,19 +111,20 @@ function afficherListe(liste) {
 
 function afficher() {
 
-let candidatsTrier = candidats.slice();
-
-    for (let a = 0; a < candidatsTrier.length - 1; a++) {
-        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
-            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
-                let temp = candidatsTrier[b];
-                candidatsTrier[b] = candidatsTrier[b + 1];
-                candidatsTrier[b + 1] = temp;
+    for (let a = 0; a < candidats.length - 1; a++) {
+        for (let b = 0; b < candidats.length - 1 - a; b++) {
+            if (candidats[b].voters.length < candidats[b + 1].voters.length) {
+                let temp = candidats[b];
+                candidats[b] = candidats[b + 1];
+                candidats[b + 1] = temp;
             }
         }
     }
 
-    afficherListe(candidatsTrier)
+    afficherListe(candidats);
 
 }
 afficher();
+
+
+
