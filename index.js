@@ -140,8 +140,23 @@ function FiltrerParPartiPolitique(candidats , partiPolitique){
 
 
 }
-FiltrerParPartiPolitique(candidats , "PJD");
+//FiltrerParPartiPolitique(candidats , "PJD");
 
+
+//voter pour un candidat 
+function voter(){
+
+    let cinVoter = prompt("entre ta cin");
+    let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter");
+
+    for(let i of candidats){
+        if(i.cin === cinCandidat){
+            i.voters.push(cinVoter);
+        }
+    }
+}
+voter();
+//afficher();
 
 
 
