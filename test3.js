@@ -123,7 +123,8 @@ let candidatsTrier = candidats.slice();
         }
     }
 
-    afficherListe(candidatsTrier)
+    afficherListe(candidatsTrier);
+    
 
 }
 afficher();

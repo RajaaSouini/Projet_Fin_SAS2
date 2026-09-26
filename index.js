@@ -217,10 +217,11 @@ function StatistiqueElection(){
     }
     console.log("le nombre total des votes dans l'élection est : " , sum);
     
-    console.log("les top 3 dans lélection sont : ")
+    console.log("les top 3 dans lélection sont : ");
 }
 StatistiqueElection();
 
+console.log(arrayStock)
 
 
 

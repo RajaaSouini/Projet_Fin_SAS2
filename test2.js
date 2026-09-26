@@ -85,10 +85,13 @@ function AjouterPlusieursC(){
 function AfficherCandidat(candidat){
     for(let i in candidat){
         if (i === "voters"){
-            console.log("cin : " ,candidat.cin);
-            console.log("nom :"  , candidat.firstName);
-            console.log("---------------------")
+            console.log("cin : ",candidat.cin);
+            console.log("nom :"  , candidat.lastName);
+            console.log("prenom : " ,candidat.firstName);
+            console.log("age :"  , candidat.age);
+            console.log("parti politique :" , candidat.politicalParty);
             console.log("le nombre de vote est " , candidat[i].length);
+            console.log("---------------------")
         }
     }
 }
@@ -103,28 +106,129 @@ function afficherListe(liste) {
   }
  
   for (let i = 0; i < liste.length; i++) {
-    AfficherCandidat(liste[i], i);
+    AfficherCandidat(liste[i]);//, i
   }
+
 }
 
 //afficherListe(candidats);
-
+let candidatsTrier = candidats.slice();
 function afficher() {
 
-    for (let a = 0; a < candidats.length - 1; a++) {
-        for (let b = 0; b < candidats.length - 1 - a; b++) {
-            if (candidats[b].voters.length < candidats[b + 1].voters.length) {
-                let temp = candidats[b];
-                candidats[b] = candidats[b + 1];
-                candidats[b + 1] = temp;
+    for (let a = 0; a < candidatsTrier.length - 1; a++) {
+        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
+            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
+                let temp = candidatsTrier[b];
+                candidatsTrier[b] = candidatsTrier[b + 1];
+                candidatsTrier[b + 1] = temp;
             }
         }
     }
 
-    afficherListe(candidats);
+    afficherListe(candidatsTrier);
+    
 
 }
 afficher();
+//afficher();
+
+
+function FiltrerParPartiPolitique(candidats , partiPolitique){
+    for(let i of candidats){
+        if(i.politicalParty === partiPolitique){
+            AfficherCandidat(i);
+        }
+    }
+
+
+}
+//FiltrerParPartiPolitique(candidats , "PJD");
+
+
+//voter pour un candidat 
+function voter(){
+
+    let cinVoter = prompt("entre ta cin");
+    let cinCandidat = prompt("entre cin du candidat sur lequel tu veux voter");
+
+    /*
+    for(let i of candidats){
+        if(i.voters.includes(cinVoter)){
+            console.log("Vous avez déjà voté et vous n'avez pas le droit de modifier votre vote ni de voter à nouveau");
+            return;
+        }
+    }
+    */
+    for(let i of candidats){
+        if(i.cin === cinCandidat){
+            i.voters.push(cinVoter);
+        }
+    }
+}
+//voter();
+//afficher();
+
+function ModifierCandidat(){
+    let cinCandidat = prompt("enter le cin du candidat duquel vous souhaiter faire un changement ");
+
+    let newPartiPolitique = prompt("entrer la nouvelle parti politique");
+    let newAge = Number(prompt("entrer l'age du candidat"));
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        if(candidats[i].cin === cinCandidat){
+            candidats[i].age = newAge;
+            candidats[i].politicalParty = newPartiPolitique;
+        }
+    }
+}
+
+//ModifierCandidat();
+//afficher();
+
+function SupprimerCandidat(){
+    let cinC = prompt("entrer le cin du candidat");
+
+    for(let i = 0 ; i< candidats.length ; i++){
+        if (candidats[i].cin == cinC){
+            candidats.splice(i , i);
+        }
+    }
+}
+
+//SupprimerCandidat();
+//afficher();
+
+//rechercher un candidat
+
+function RechercherCandidat(){
+    let nomC = prompt("entre le nom du candidats");
+    for(let i of candidats){
+        if(i.lastName === nomC){
+            AfficherCandidat(i);
+        }
+    }
+}
+//RechercherCandidat();
+
+//statistiques de l'élection 
+function StatistiqueElection(){
+    console.log("le nombre total des candidats est :" , candidats.length);
+    let sum = 0 ;
+    for(let i of candidats){
+        sum += i.voters.length;
+    }
+    console.log("le nombre total des votes dans l'élection est : " , sum);
+
+
+    
+    console.log("les top 3 dans lélection sont : ", candidatsTrier.slice(0,3));
+}
+StatistiqueElection();
+
+
+
+
+
 
 
 
