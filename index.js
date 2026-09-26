@@ -85,10 +85,13 @@ function AjouterPlusieursC(){
 function AfficherCandidat(candidat){
     for(let i in candidat){
         if (i === "voters"){
-            console.log("cin : " ,candidat.cin);
-            console.log("nom :"  , candidat.firstName);
-            console.log("---------------------")
+            console.log("cin : ",candidat.cin);
+            console.log("nom :"  , candidat.lastName);
+            console.log("prenom : " ,candidat.firstName);
+            console.log("age :"  , candidat.age);
+            console.log("parti politique :" , candidat.politicalParty);
             console.log("le nombre de vote est " , candidat[i].length);
+            console.log("---------------------")
         }
     }
 }
@@ -103,8 +106,9 @@ function afficherListe(liste) {
   }
  
   for (let i = 0; i < liste.length; i++) {
-    AfficherCandidat(liste[i], i);
+    AfficherCandidat(liste[i]);//, i
   }
+
 }
 
 //afficherListe(candidats);
@@ -124,7 +128,22 @@ function afficher() {
     afficherListe(candidats);
 
 }
-afficher();
+//afficher();
+
+
+function FiltrerParPartiPolitique(candidats , partiPolitique){
+    for(let i of candidats){
+        if(i.politicalParty === partiPolitique){
+            AfficherCandidat(i);
+        }
+    }
+
+
+}
+FiltrerParPartiPolitique(candidats , "PJD");
+
+
+
 
 
 
