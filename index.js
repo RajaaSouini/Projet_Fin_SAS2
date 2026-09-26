@@ -112,20 +112,21 @@ function afficherListe(liste) {
 }
 
 //afficherListe(candidats);
-
+let candidatsTrier = candidats.slice();
 function afficher() {
 
-    for (let a = 0; a < candidats.length - 1; a++) {
-        for (let b = 0; b < candidats.length - 1 - a; b++) {
-            if (candidats[b].voters.length < candidats[b + 1].voters.length) {
-                let temp = candidats[b];
-                candidats[b] = candidats[b + 1];
-                candidats[b + 1] = temp;
+    for (let a = 0; a < candidatsTrier.length - 1; a++) {
+        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
+            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
+                let temp = candidatsTrier[b];
+                candidatsTrier[b] = candidatsTrier[b + 1];
+                candidatsTrier[b + 1] = temp;
             }
         }
     }
 
-    afficherListe(candidats);
+    afficherListe(candidatsTrier);
+    
 
 }
 //afficher();
@@ -216,12 +217,16 @@ function StatistiqueElection(){
         sum += i.voters.length;
     }
     console.log("le nombre total des votes dans l'élection est : " , sum);
-    
+    let topC = candidatsTrier.slice(0,3);
     console.log("les top 3 dans lélection sont : ");
+    for(let i = 0 ; i< topC.length ; i++){
+        console.log((i + 1) + " " + topC[i].firstName + " " + topC[i].lastName);
+    }
 }
+
+afficher();
 StatistiqueElection();
 
-console.log(arrayStock)
 
 
 
