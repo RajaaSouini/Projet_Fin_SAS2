@@ -177,11 +177,11 @@ function ModifierCandidat(){
             candidats[i].age = newAge;
             candidats[i].politicalParty = newPartiPolitique;
         }
-        AfficherCandidat(candidats[i]);
     }
 }
 
 ModifierCandidat();
+afficher();
 
 
 
