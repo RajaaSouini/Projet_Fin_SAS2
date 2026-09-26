@@ -241,15 +241,21 @@ function topCandidats(){
 //nombre de candidats par parti politique
 
 function NombreCparPartiPolitique(){
-    let occurence = {};
-    for(let candidat of candidats){
-        
+    const nbrCandidatParParti = {};
+    for(let i = 0 ; i < candidats.length ; i++){
+        let elem = candidats[i].politicalParty;
+        if(! (elem in nbrCandidatParParti)){
+            nbrCandidatParParti[elem] = 1 ; 
+        }else{
+            nbrCandidatParParti[elem] += 1 ;
+        }
     }
 }
 function StatistiqueElection(){
     AfficherTotalCandidat();
     TotalVotesElection();
     topCandidats();
+    NombreCparPartiPolitique();
 }
 //let a = afficher();
 //StatistiqueElection(); 

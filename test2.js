@@ -11,7 +11,7 @@ const candidats = [
   { cin: "ST012345", lastName: "Fassi", firstName: "Khadija", politicalParty: "PAM", age: 31, voters: [] },
 ];
 
-const nbrCandidatParParti = {"PJD" : 2 , "PAM" : 3};
+const nbrCandidatParParti = {};
 
 
 
