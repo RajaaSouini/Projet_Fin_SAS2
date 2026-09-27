@@ -83,7 +83,7 @@ function AjouterCandidats(){
 function AjouterPlusieursC(){
     console.log("Ajoutons plusieurs candidats à la fois");
 
-    let nombreC = parseInt(prompt("entre le nombre de candidats que tu souhaite ajouter"));
+    let nombreC = Number(prompt("entre le nombre de candidats que tu souhaite ajouter"));
 
     let i = 1 ; 
     while(i <= nombreC){
