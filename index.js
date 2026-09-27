@@ -53,8 +53,8 @@ function AjouterCandidats(){
         return;
     }
     let age = Number(prompt("entre l'age du candidat"));
-    if(age < 18 ){
-        console.log("tu es un mineur , tu n'as pas le droit");
+    if(age < 18  || (typeof age !== Number || age.trim() === "")){
+        console.log("l'age est moins que 18 ans ou tu n as pas entrer un age");
         return;
     }
     let partiPolitique = prompt("entre la parti politique du candidat");
