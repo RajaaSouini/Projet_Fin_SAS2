@@ -131,22 +131,7 @@ function trierParVotesDecroissant(liste){
 
     return copie;
 }
-/*
-let candidatsTrier = candidats.slice();
-function afficher() {
 
-    for (let a = 0; a < candidatsTrier.length - 1; a++) {
-        for (let b = 0; b < candidatsTrier.length - 1 - a; b++) {
-            if (candidatsTrier[b].voters.length < candidatsTrier[b + 1].voters.length) {
-                let temp = candidatsTrier[b];
-                candidatsTrier[b] = candidatsTrier[b + 1];
-                candidatsTrier[b + 1] = temp;
-            }
-        }
-    }
-    afficherListe(candidatsTrier);
-} */
-//afficher();
 
 function afficher() {
     let candidatsTries = trierParVotesDecroissant(candidats);
@@ -156,7 +141,7 @@ function afficher() {
 
 function FiltrerParPartiPolitique(candidats , partiPolitique){
     for(let i of candidats){
-        if(i.politicalParty === partiPolitique){
+        if(i.politicalParty.toUpperCase() === partiPolitique.toUpperCase()){
             AfficherCandidat(i);
         }
     }
@@ -399,7 +384,7 @@ function Menu(){
         }
     }
 }
-//Menu();
+Menu();
 
 //AfficherCandidat(candidats[0]);
 
