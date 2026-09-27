@@ -37,14 +37,26 @@ function AjouterCandidats(){
         }
     }
 
-    if(cinExist){
-        console.log("le cin existe déjà tu ne peux pas ajouter ce candidat");
+    if(cinExist || cin.trim() === ""){
+        console.log("le cin existe déjà ou le champ est vide");
         return;
     }
 
     let nom = prompt("entre le nom du candidat");
+    if(nom.trim() === ""){
+        console.log("tu n'as pas entrer un nom ");
+        return;
+    }
     let prenom = prompt("entre le prenom du candidat");
+    if(prenom.trim() === ""){
+        console.log("le champ est vide");
+        return;
+    }
     let age = Number(prompt("entre l'age du candidat"));
+    if(age < 18 ){
+        console.log("tu es un mineur , tu n'as pas le droit");
+        return;
+    }
     let partiPolitique = prompt("entre la parti politique du candidat");
 
     if(partiPolitique === ""){
