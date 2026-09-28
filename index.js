@@ -52,11 +52,11 @@ function AjouterCandidats(){
         console.log("le champ est vide");
         return;
     }
-    
+
     let saisie = prompt("entre l'age du candidat");
 
     
-    if (saisie === null || saisie.trim() === "") {
+    if (saisie.trim() === "") {
         console.log("Tu n'as pas entré d'âge");
         return;
     }
