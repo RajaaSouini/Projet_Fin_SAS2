@@ -306,9 +306,9 @@ function TotalVotesElection(){
 }
 //top 3
 function topCandidats(){
-    let topC = trierParVotesDecroissant(candidats).slice(0,3);
+    let topC = trierParVotesDecroissant(candidats);
     console.log("les top 3 dans lélection sont : ");
-    for(let i = 0 ; i< topC.length ; i++){
+    for(let i = 0 ; i< 3 ; i++){
         console.log((i + 1) + " " + topC[i].firstName + " " + topC[i].lastName);
     }
 
