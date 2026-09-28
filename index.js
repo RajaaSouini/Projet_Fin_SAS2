@@ -52,11 +52,23 @@ function AjouterCandidats(){
         console.log("le champ est vide");
         return;
     }
-    let age = Number(prompt("entre l'age du candidat"));
-    if(age < 18  || (typeof age !== Number || age.trim() === "")){
-        console.log("l'age est moins que 18 ans ou tu n as pas entrer un age");
+    
+    let saisie = prompt("entre l'age du candidat");
+
+    
+    if (saisie === null || saisie.trim() === "") {
+        console.log("Tu n'as pas entré d'âge");
         return;
     }
+
+    let age = Number(saisie);
+
+    
+    if (Number.isNaN(age) || age < 18) {
+        console.log("L'âge doit être un nombre valide et supérieur ou égal à 18 ans");
+        return;
+    }
+
     let partiPolitique = prompt("entre la parti politique du candidat");
 
     if(partiPolitique === ""){
@@ -267,6 +279,8 @@ function SupprimerCandidat(){
     }
     candidats.pop();
     console.log("le candidat a été supprimé");
+
+    afficher();
 }
 
 //SupprimerCandidat();
